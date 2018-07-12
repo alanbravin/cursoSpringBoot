@@ -30,9 +30,9 @@ public class CategoriaResource {
 	
 	@RequestMapping(method=RequestMethod.GET) 
 	public ResponseEntity<List<CategoriaDTO>> findAll() {
-		List<Categoria> categorias = service.findAll();
+		List<Categoria> objs = service.findAll();
 		List<CategoriaDTO> categoriasDTO = 
-				categorias.stream().map(
+				objs.stream().map(
 						element -> new CategoriaDTO(element)).collect(Collectors.toList()
 				);
 		
@@ -46,16 +46,16 @@ public class CategoriaResource {
 			@RequestParam(value="orderBy", defaultValue="nome") String orderBy, 
 			@RequestParam(value="direction", defaultValue="ASC") String direction) {
 		
-		Page<Categoria> categorias = service.findPage(page, linesPerPage, orderBy, direction);
-		Page<CategoriaDTO> categoriasDTO = categorias.map(element -> new CategoriaDTO(element));
+		Page<Categoria> objs = service.findPage(page, linesPerPage, orderBy, direction);
+		Page<CategoriaDTO> categoriasDTO = objs.map(element -> new CategoriaDTO(element));
 		
 		return ResponseEntity.ok().body(categoriasDTO);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET) 
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
-		Categoria categoria = service.find(id);
-		return ResponseEntity.ok().body(categoria);
+		Categoria obj = service.find(id);
+		return ResponseEntity.ok().body(obj);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
