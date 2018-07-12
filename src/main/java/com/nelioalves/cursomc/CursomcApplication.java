@@ -1,6 +1,8 @@
 package com.nelioalves.cursomc;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,13 +14,20 @@ import com.nelioalves.cursomc.domain.Cidade;
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.domain.Endereco;
 import com.nelioalves.cursomc.domain.Estado;
+import com.nelioalves.cursomc.domain.Pagamento;
+import com.nelioalves.cursomc.domain.PagamentoComBoleto;
+import com.nelioalves.cursomc.domain.PagamentoComCartao;
+import com.nelioalves.cursomc.domain.Pedido;
 import com.nelioalves.cursomc.domain.Produto;
+import com.nelioalves.cursomc.domain.enums.EstadoPagamento;
 import com.nelioalves.cursomc.domain.enums.TipoCliente;
 import com.nelioalves.cursomc.repository.CategoriaRepository;
 import com.nelioalves.cursomc.repository.CidadeRepository;
 import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.repository.EnderecoRepository;
 import com.nelioalves.cursomc.repository.EstadoRepository;
+import com.nelioalves.cursomc.repository.PagamentoRepository;
+import com.nelioalves.cursomc.repository.PedidoRepository;
 import com.nelioalves.cursomc.repository.ProdutoRepository;
 
 @SpringBootApplication
@@ -35,6 +44,10 @@ public class CursomcApplication implements CommandLineRunner {
 	private EstadoRepository estadoRepository;
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	@Autowired
+	private PagamentoRepository pagamentoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -42,6 +55,8 @@ public class CursomcApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		
 		Categoria informatica = new Categoria(null, "Informática");
 		Categoria escritorio = new Categoria(null, "Escritório");
 		categoriaRepository.saveAll(Arrays.asList(informatica, escritorio));
@@ -72,6 +87,37 @@ public class CursomcApplication implements CommandLineRunner {
 		Endereco endereco1 = new Endereco(null, "Rua Flores", "300", "Apto 203", "Jardim", "38220634", cliente1, uberlandia);
 		Endereco endereco2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cliente1, cidadeSaoPaulo);
 		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
+		
+
+		Pedido pedido1 = new Pedido(
+				null, 
+				simpleDateFormat.parse("30/09/2017 10:32"), 
+				cliente1, 
+				endereco1);
+		
+		Pedido pedido2 = new Pedido(
+				null, 
+				simpleDateFormat.parse("10/10/2017 19:35"), 
+				cliente1, 
+				endereco2);
+		
+		Pagamento pagamento1 = new PagamentoComCartao(
+				null, 
+				EstadoPagamento.QUITADO, 
+				pedido1, 
+				6);
+		pedido1.setPagamento(pagamento1);
+		
+		Pagamento pagamento2 = new PagamentoComBoleto(
+				null, 
+				EstadoPagamento.PENDENTE, 
+				pedido2, 
+				simpleDateFormat.parse("20/10/2017 00:00"),
+				null);
+		pedido2.setPagamento(pagamento2);
+		
+		pedidoRepository.saveAll(Arrays.asList(pedido1, pedido2));
+		pagamentoRepository.saveAll(Arrays.asList(pagamento1, pagamento2));
 	}
 	
 	
