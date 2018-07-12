@@ -14,6 +14,7 @@ import com.nelioalves.cursomc.domain.Cidade;
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.domain.Endereco;
 import com.nelioalves.cursomc.domain.Estado;
+import com.nelioalves.cursomc.domain.ItemPedido;
 import com.nelioalves.cursomc.domain.Pagamento;
 import com.nelioalves.cursomc.domain.PagamentoComBoleto;
 import com.nelioalves.cursomc.domain.PagamentoComCartao;
@@ -26,6 +27,7 @@ import com.nelioalves.cursomc.repository.CidadeRepository;
 import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.repository.EnderecoRepository;
 import com.nelioalves.cursomc.repository.EstadoRepository;
+import com.nelioalves.cursomc.repository.ItemPedidoRepository;
 import com.nelioalves.cursomc.repository.PagamentoRepository;
 import com.nelioalves.cursomc.repository.PedidoRepository;
 import com.nelioalves.cursomc.repository.ProdutoRepository;
@@ -48,6 +50,8 @@ public class CursomcApplication implements CommandLineRunner {
 	private PedidoRepository pedidoRepository;
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -118,6 +122,15 @@ public class CursomcApplication implements CommandLineRunner {
 		
 		pedidoRepository.saveAll(Arrays.asList(pedido1, pedido2));
 		pagamentoRepository.saveAll(Arrays.asList(pagamento1, pagamento2));
+		
+		ItemPedido itemPedido1 = new ItemPedido(pedido1, computador, 0D, 1, 2000D);
+		ItemPedido itemPedido2 = new ItemPedido(pedido1, mouse, 0D, 1, 80D);
+		ItemPedido itemPedido3 = new ItemPedido(pedido2, impressora, 100D, 1, 800D);
+		
+		pedido1.getItens().addAll(Arrays.asList(itemPedido1, itemPedido2));
+		pedido2.getItens().addAll(Arrays.asList(itemPedido3));
+		
+		itemPedidoRepository.saveAll(Arrays.asList(itemPedido1, itemPedido2, itemPedido3));
 	}
 	
 	
