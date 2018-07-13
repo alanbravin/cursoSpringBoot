@@ -119,9 +119,6 @@ public class Cliente implements Serializable {
 		this.enderecos = enderecos;
 	}
 
-	public void setTipoCliente(Integer tipoCliente) {
-		this.tipoCliente = tipoCliente;
-	}
 
 	@Override
 	public int hashCode() {
