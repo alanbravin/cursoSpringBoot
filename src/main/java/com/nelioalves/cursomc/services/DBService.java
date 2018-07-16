@@ -20,6 +20,7 @@ import com.nelioalves.cursomc.domain.PagamentoComCartao;
 import com.nelioalves.cursomc.domain.Pedido;
 import com.nelioalves.cursomc.domain.Produto;
 import com.nelioalves.cursomc.domain.enums.EstadoPagamento;
+import com.nelioalves.cursomc.domain.enums.Perfil;
 import com.nelioalves.cursomc.domain.enums.TipoCliente;
 import com.nelioalves.cursomc.repository.CategoriaRepository;
 import com.nelioalves.cursomc.repository.CidadeRepository;
@@ -111,11 +112,19 @@ public class DBService {
 		Cliente cliente1 = new Cliente(null, "Maria Silva", "alan.resender@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, bCryptPasswordEncoder.encode("123456"));
 		cliente1.getTelefones().add("27363323");
 		cliente1.getTelefones().add("93838393");
-		clienteRepository.saveAll(Arrays.asList(cliente1));
+		
+		Cliente cliente2 = new Cliente(null, "Ana Costa", "alan.rufino@objective.com.br", "04691331980", TipoCliente.PESSOAFISICA, bCryptPasswordEncoder.encode("123456"));
+		cliente2.addPerfil(Perfil.ADMIN);
+		cliente2.getTelefones().add("32222323");
+		cliente2.getTelefones().add("999998888");
+		
+		clienteRepository.saveAll(Arrays.asList(cliente1, cliente2));
+		
 		
 		Endereco endereco1 = new Endereco(null, "Rua Flores", "300", "Apto 203", "Jardim", "38220634", cliente1, uberlandia);
 		Endereco endereco2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cliente1, cidadeSaoPaulo);
-		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2));
+		Endereco endereco3 = new Endereco(null, "Rua Galáxia", "47", "Casa", "Jd Universo", "87060430", cliente2, cidadeSaoPaulo);
+		enderecoRepository.saveAll(Arrays.asList(endereco1, endereco2, endereco3));
 		
 
 		Pedido pedido1 = new Pedido(
