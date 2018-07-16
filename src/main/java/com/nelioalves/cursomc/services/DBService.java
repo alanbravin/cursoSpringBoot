@@ -62,7 +62,8 @@ public class DBService {
 		Categoria jardinagem = new Categoria(null, "Jardinagem");
 		Categoria decoracao = new Categoria(null, "Decoração");
 		Categoria perfumaria = new Categoria(null, "Perfumaria");
-		categoriaRepository.saveAll(Arrays.asList(informatica, escritorio, camaMesaBanho, eletronicos, jardinagem, decoracao, perfumaria));
+		Categoria teste = new Categoria(null, "Teste");
+		categoriaRepository.saveAll(Arrays.asList(informatica, escritorio, camaMesaBanho, eletronicos, jardinagem, decoracao, perfumaria, teste));
 		
 		Produto produto1 = new Produto(null, "Computador", 2000D);
 		Produto produto2 = new Produto(null, "Impressora", 800D);
