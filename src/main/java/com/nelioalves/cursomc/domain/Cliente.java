@@ -30,6 +30,8 @@ public class Cliente implements Serializable {
 	private String email;
 	private String cpfOuCnpj;
 	private Integer tipoCliente;
+	@JsonIgnore
+	private String senha;
 	
 	@ElementCollection
 	@CollectionTable(name = "TELEFONE")
@@ -42,13 +44,14 @@ public class Cliente implements Serializable {
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
-	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente) {
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipoCliente, String senha) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipoCliente = (tipoCliente == null ? null : tipoCliente.getCod());
+		this.senha = senha;
 	}
 	
 	public Cliente() {
@@ -95,6 +98,14 @@ public class Cliente implements Serializable {
 		this.tipoCliente = tipoCliente.getCod();
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 	public Set<String> getTelefones() {
 		return telefones;
 	}
@@ -144,4 +155,5 @@ public class Cliente implements Serializable {
 			return false;
 		return true;
 	}
+
 }
