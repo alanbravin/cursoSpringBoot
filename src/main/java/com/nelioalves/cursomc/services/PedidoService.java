@@ -40,7 +40,7 @@ public class PedidoService {
 	@Transactional
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);
-		obj.setInstant(new Date());
+		obj.setInstante(new Date());
 		obj.getPagamento().setEstadoPagamento(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		obj.setCliente(clienteService.find(obj.getCliente().getId()));
@@ -48,7 +48,7 @@ public class PedidoService {
 		
 		if (obj.getPagamento() instanceof PagamentoComBoleto) {
 			PagamentoComBoleto pagamento = (PagamentoComBoleto) obj.getPagamento();
-			boletoService.preencherPagamentoComBoleto(pagamento, obj.getInstant());
+			boletoService.preencherPagamentoComBoleto(pagamento, obj.getInstante());
 		}
 		
 		obj = repository.save(obj);
@@ -62,7 +62,7 @@ public class PedidoService {
 		}
 		
 		itemPedidoRepository.saveAll(obj.getItens());
-		emailService.sendOrderConfirmationEmail(obj);
+		emailService.sendOrderConfirmationHtmlEmail(obj);
 		
 		return obj;
 	}
