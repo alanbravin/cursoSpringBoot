@@ -79,6 +79,46 @@ public class DBService {
 		Produto produto9 = new Produto(null, "Abajour", 100D);
 		Produto produto10 = new Produto(null, "Pendente", 180D);
 		Produto produto11 = new Produto(null, "Shampoo", 90D);
+		Produto produto12 = new Produto(null, "Produto 12", 10D);
+		Produto produto13 = new Produto(null, "Produto 13", 10D);
+		Produto produto14 = new Produto(null, "Produto 14", 10D);
+		Produto produto15 = new Produto(null, "Produto 15", 10D);
+		Produto produto16 = new Produto(null, "Produto 16", 10D);
+		Produto produto17 = new Produto(null, "Produto 17", 10D);
+		Produto produto18 = new Produto(null, "Produto 18", 10D);
+		Produto produto19 = new Produto(null, "Produto 19", 10D);
+		Produto produto20 = new Produto(null, "Produto 20", 10D);
+		Produto produto21 = new Produto(null, "Produto 21", 10D);
+		Produto produto22 = new Produto(null, "Produto 22", 10D);
+		Produto produto23 = new Produto(null, "Produto 23", 10D);
+		Produto produto24 = new Produto(null, "Produto 24", 10D);
+		Produto produto25 = new Produto(null, "Produto 25", 10D);
+		Produto produto26 = new Produto(null, "Produto 26", 10D);
+		Produto produto27 = new Produto(null, "Produto 27", 10D);
+		Produto produto28 = new Produto(null, "Produto 28", 10D);
+		Produto produto29 = new Produto(null, "Produto 29", 10D);
+		Produto produto30 = new Produto(null, "Produto 30", 10D);
+		Produto produto31 = new Produto(null, "Produto 31", 10D);
+		Produto produto32 = new Produto(null, "Produto 32", 10D);
+		Produto produto33 = new Produto(null, "Produto 33", 10D);
+		Produto produto34 = new Produto(null, "Produto 34", 10D);
+		Produto produto35 = new Produto(null, "Produto 35", 10D);
+		Produto produto36 = new Produto(null, "Produto 36", 10D);
+		Produto produto37 = new Produto(null, "Produto 37", 10D);
+		Produto produto38 = new Produto(null, "Produto 38", 10D);
+		Produto produto39 = new Produto(null, "Produto 39", 10D);
+		Produto produto40 = new Produto(null, "Produto 40", 10D);
+		Produto produto41 = new Produto(null, "Produto 41", 10D);
+		Produto produto42 = new Produto(null, "Produto 42", 10D);
+		Produto produto43 = new Produto(null, "Produto 43", 10D);
+		Produto produto44 = new Produto(null, "Produto 44", 10D);
+		Produto produto45 = new Produto(null, "Produto 45", 10D);
+		Produto produto46 = new Produto(null, "Produto 46", 10D);
+		Produto produto47 = new Produto(null, "Produto 47", 10D);
+		Produto produto48 = new Produto(null, "Produto 48", 10D);
+		Produto produto49 = new Produto(null, "Produto 49", 10D);
+		Produto produto50 = new Produto(null, "Produto 50", 10D);
+		
 		
 		produto1.getCategorias().addAll(Arrays.asList(informatica, eletronicos));
 		produto2.getCategorias().addAll(Arrays.asList(informatica, escritorio, eletronicos));
@@ -91,12 +131,61 @@ public class DBService {
 		produto9.getCategorias().addAll(Arrays.asList(decoracao));
 		produto10.getCategorias().addAll(Arrays.asList(decoracao));
 		produto11.getCategorias().addAll(Arrays.asList(perfumaria));
+		produto12.getCategorias().addAll(Arrays.asList(informatica));
+		produto13.getCategorias().addAll(Arrays.asList(informatica));
+		produto14.getCategorias().addAll(Arrays.asList(informatica));
+		produto15.getCategorias().addAll(Arrays.asList(informatica));
+		produto16.getCategorias().addAll(Arrays.asList(informatica));
+		produto17.getCategorias().addAll(Arrays.asList(informatica));
+		produto18.getCategorias().addAll(Arrays.asList(informatica));
+		produto19.getCategorias().addAll(Arrays.asList(informatica));
+		produto20.getCategorias().addAll(Arrays.asList(informatica));
+		produto21.getCategorias().addAll(Arrays.asList(informatica));
+		produto22.getCategorias().addAll(Arrays.asList(informatica));
+		produto23.getCategorias().addAll(Arrays.asList(informatica));
+		produto24.getCategorias().addAll(Arrays.asList(informatica));
+		produto25.getCategorias().addAll(Arrays.asList(informatica));
+		produto26.getCategorias().addAll(Arrays.asList(informatica));
+		produto27.getCategorias().addAll(Arrays.asList(informatica));
+		produto28.getCategorias().addAll(Arrays.asList(informatica));
+		produto29.getCategorias().addAll(Arrays.asList(informatica));
+		produto30.getCategorias().addAll(Arrays.asList(informatica));
+		produto31.getCategorias().addAll(Arrays.asList(informatica));
+		produto32.getCategorias().addAll(Arrays.asList(informatica));
+		produto33.getCategorias().addAll(Arrays.asList(informatica));
+		produto34.getCategorias().addAll(Arrays.asList(informatica));
+		produto35.getCategorias().addAll(Arrays.asList(informatica));
+		produto36.getCategorias().addAll(Arrays.asList(informatica));
+		produto37.getCategorias().addAll(Arrays.asList(informatica));
+		produto38.getCategorias().addAll(Arrays.asList(informatica));
+		produto39.getCategorias().addAll(Arrays.asList(informatica));
+		produto40.getCategorias().addAll(Arrays.asList(informatica));
+		produto41.getCategorias().addAll(Arrays.asList(informatica));
+		produto42.getCategorias().addAll(Arrays.asList(informatica));
+		produto43.getCategorias().addAll(Arrays.asList(informatica));
+		produto44.getCategorias().addAll(Arrays.asList(informatica));
+		produto45.getCategorias().addAll(Arrays.asList(informatica));
+		produto46.getCategorias().addAll(Arrays.asList(informatica));
+		produto47.getCategorias().addAll(Arrays.asList(informatica));
+		produto48.getCategorias().addAll(Arrays.asList(informatica));
+		produto49.getCategorias().addAll(Arrays.asList(informatica));
+		produto50.getCategorias().addAll(Arrays.asList(informatica));
 		
 		produtoRepository.saveAll(
 				Arrays.asList(
 						produto1, produto2, produto3, produto4, 
 						produto5, produto6, produto7, produto8, 
-						produto9, produto10, produto11
+						produto9, produto10, produto11, produto12, 
+						produto13, produto14, produto15, produto16,
+						produto17, produto18, produto19, produto20,
+						produto21, produto22, produto23, produto24,
+						produto25, produto26, produto27, produto28,
+						produto29, produto30, produto31, produto32,
+						produto33, produto34, produto35, produto36,
+						produto37, produto38, produto39, produto40,
+						produto41, produto42, produto43, produto44,
+						produto45, produto46, produto47, produto48,
+						produto49, produto50
 				)
 		);
 		
